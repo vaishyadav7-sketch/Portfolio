@@ -1,0 +1,188 @@
+/* ----------------------------
+   Modern Glass UI Portfolio
+----------------------------- */
+
+:root {
+  --bg1: #0b1020;
+  --bg2: #111a33;
+
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+  --stroke: rgba(107, 6, 6, 0.18);
+
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.70);
+
+  --primary: #4fb0ff;
+  --primary2: #8a5bff;
+
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+
+  /* Premium gradient background */
+  background: radial-gradient(900px 500px at 20% 10%, rgba(79, 140, 255, 0.35), transparent 60%),
+    radial-gradient(800px 450px at 85% 20%, rgba(138, 91, 255, 0.30), transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Soft glowing blobs */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  filter: blur(60px);
+  opacity: 0.35;
+  z-index: -1;
+  border-radius: 999px;
+}
+
+body::before {
+  top: -120px;
+  left: -120px;
+  background: rgba(79, 140, 255, 0.75);
+}
+
+body::after {
+  bottom: -140px;
+  right: -140px;
+  background: rgba(138, 91, 255, 0.70);
+}
+
+header {
+  margin: 18px auto 12px;
+  width: min(980px, calc(100% - 28px));
+  padding: 22px 20px;
+  border-radius: var(--radius);
+
+  background: linear-gradient(135deg, rgba(79, 140, 255, 0.20), rgba(138, 91, 255, 0.18));
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 38px);
+  letter-spacing: 0.4px;
+}
+
+header p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+/* Layout wrapper */
+section,
+footer {
+  width: min(980px, calc(100% - 28px));
+  margin: 14px auto;
+}
+
+/* Glass cards */
+section {
+  background: var(--glass);
+  border: 1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding: 18px 18px;
+  box-shadow: var(--shadow);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  transform: translateY(0);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+section:hover {
+  transform: translateY(-2px);
+  background: var(--glass-strong);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.92);
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Gradient accent line */
+h2::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  box-shadow: 0 0 16px rgba(79, 140, 255, 0.55);
+}
+
+p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+li {
+  margin: 8px 0;
+}
+
+/* Make project lines look cleaner */
+section:nth-of-type(4) p {
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Footer glass */
+footer {
+  text-align: center;
+  padding: 14px 12px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  color: rgba(255, 255, 255, 0.75);
+  box-shadow: var(--shadow);
+}
+
+/* Mobile spacing */
+@media (max-width: 520px) {
+  header {
+    padding: 18px 14px;
+  }
+
+  section {
+    padding: 16px 14px;
+  }
+}
